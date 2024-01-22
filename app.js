@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const PORT = process.env.PORT || 3000;
 
 const sequelize = require('./util/database');
 const appointmentRoutes = require('./routes/appointment');
@@ -22,7 +23,7 @@ app.use((req, res) => {
 sequelize
     .sync()
     .then((res) => {
-        app.listen(3000);
+        app.listen(PORT);
     })
     .catch((err) => {
         console.log(err);
